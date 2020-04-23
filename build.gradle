@@ -1,42 +1,29 @@
 plugins {
-    id 'org.springframework.boot' version '2.2.2.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
     id 'java'
+    id 'war'
+    id "com.bmuschko.tomcat" version "2.5"
+    id "com.bmuschko.tomcat-base" version "2.5"
 }
 group = 'hello'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
-
-configurations {
-    developmentOnly
-    runtimeClasspath {
-        extendsFrom developmentOnly
-    }
-}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    // https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring5
+// https://mvnrepository.com/artifact/javax.servlet/java..
+    compile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
+// https://mvnrepository.com/artifact/org.thymeleaf/thym..
     compile group: 'org.thymeleaf', name: 'thymeleaf-spring5', version: '3.0.11.RELEASE'
-    // https://mvnrepository.com/artifact/org.springframework/spring-webmvc
+// https://mvnrepository.com/artifact/org.springframewor..
     compile group: 'org.springframework', name: 'spring-webmvc', version: '5.2.5.RELEASE'
-    // https://mvnrepository.com/artifact/org.springframework/spring-web
+// https://mvnrepository.com/artifact/org.springframewor..
     compile group: 'org.springframework', name: 'spring-web', version: '5.2.5.RELEASE'
-    // https://mvnrepository.com/artifact/org.springframework/spring-context
+// https://mvnrepository.com/artifact/org.springframewor..
     compile group: 'org.springframework', name: 'spring-context', version: '5.2.5.RELEASE'
-    // https://mvnrepository.com/artifact/org.springframework/spring-core
+// https://mvnrepository.com/artifact/org.springframewor..
     compile group: 'org.springframework', name: 'spring-core', version: '5.2.5.RELEASE'
-    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    testImplementation('org.springframework.boot:spring-boot-starter-test') {
-        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-    }
-}
-
-test {
-    useJUnitPlatform()
+    providedCompile "javax.servlet:javax.servlet-api:3.1.0"
 }
